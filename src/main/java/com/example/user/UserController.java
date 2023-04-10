@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.transaction.Transactional;
+
 import java.util.List;
 
 @RestController
@@ -20,6 +22,7 @@ public class UserController {
     }
 
     @PostMapping("/add")
+    @Transactional
     public ResponseEntity<User> add(@RequestBody User user) {
         return ResponseEntity.ok(userService.add(user));
     }
@@ -30,12 +33,16 @@ public class UserController {
     }
 
     @DeleteMapping("/{email}")
+    @Transactional
     public void delete(@PathVariable("email") String email) {
         userService.deleteByEmail(email);
     }
 
     @PutMapping("/update")
+    @Transactional
     public ResponseEntity<User> update(@RequestBody User user) {
+
+
         return ResponseEntity.ok(userService.update(user));
     }
 

@@ -46,7 +46,8 @@ public class SecurityConfig {
     //         .hasAuthority("ADMIN").anyRequest()
     //         .authenticated().and().httpBasic(withDefaults());    
     
-    // public static void main(String[] args) {
-    //     System.out.println(new SecurityConfig().passwordEncoder().encode("123456"));
-    // }
+    public static void main(String[] args) {
+        System.out.println(new SecurityConfig().passwordEncoder().encode("Temp2023$$"));
+    }
+
 }
